@@ -63,3 +63,7 @@ function resetBoard(){
 })();
 
 cards.forEach(card => card.addEventListener ('click', flipCard));
+
+document.getElementById("start").addEventListener("click", function(){
+  shuffle();
+});
