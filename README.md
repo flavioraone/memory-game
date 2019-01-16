@@ -5,11 +5,15 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 
-## Instructions
+## About
 
-The Memory Game Project is completely related to your ability to demonstrate HTML, CSS and JavaScript domain. You will create a complete browser matching game (also known as Concentration). But this is not a memory game either! It is a modern game, well designed and full of features!
+The Memory Game Project was completely related to my ability to demonstrate HTML, CSS and JavaScript domain. I created a complete browser matching game (also known as Concentration). But this is not a memory game either! It is a modern game, well designed and full of features!
 
-How it works
+## Acces the Game:
+The game is available in:
+https://flavioraone.github.io/memory-game/
+
+## How it works
 If you are not familiar with the game, the rules are very simple: there will be a series of cards face down, and the player must turn two of those cards up to locate those that match each other!
 
 The game board consists of sixteen cards arranged randomly in a grid. The deck consists of eight pairs of cards, and each pair has a different symbol from the others. How each move works:
@@ -19,6 +23,7 @@ Then, that same player must turn another card, trying to find the corresponding 
 If the cards are the same, both face up
 If the cards are not equal, both cards must face down again
 The game ends when all pairs are found.
+
 
 ## Contributing
 

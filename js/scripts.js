@@ -57,7 +57,7 @@ function checkForMatch(){
 	//do cards match?
 	isMatch ? disableCards() : unflipCards();
 	console.log("Match: " + matched);
-	if (matched >=6){
+	if (matched >=1){
 		completed();
 	} 
 }
