@@ -6,11 +6,16 @@
 	<title>Memory Game</title>
 </head>
 <body>
-	<header>FAVORITE ANIMALS MEMORY GAME</header>
+	<header><h1>FAVORITE ANIMALS MEMORY GAME</h1></header>
 	<section class="start-game">
 		<form class="start-game">
 			<input id="start "type="submit" value="START">
 		</form>
+		<div>
+			<div><h3 id="moves">MOVES: </h3></div>
+			<div><h3 id="timer">TIMER: </h3></div>
+		</div>
+		
 	</section>
 	<container class="memory-board">
 		<section class="memory-game">
@@ -65,8 +70,24 @@
 
 		</section>
 	</container>
-	
-	
+
+	<!-- Modal content -->
+  	<div id="ResultModal" class="modal">
+  		<div>
+    		<header class="modal-header"> 
+      			<h2>CONGRATULATIONS</h2>
+    		</header>
+    	<div class="modal-content">
+      		<h3 id="moves-modal">MOVES: </h3>
+        	<h3 id="timer-modal">TIMER: </h3>
+        	<div id="score"></div>
+    	</div>
+    		<footer class="w3-container w3-red w3-display-container">
+      		<span onclick="document.getElementById('ResultModal').style.display='none'">Close</span>
+    		</footer>
+  		</div>
+	</div>
+	<!-- Modal content -->
 
 	<script src="js/scripts.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

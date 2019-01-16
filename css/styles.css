@@ -28,6 +28,13 @@ footer {
 	width: 100%;
 }
 
+.h1.timer {
+	margin: auto;
+	width: 100%;
+	font-family: fantasy;
+	color: ##000EFF;
+}
+
 .start-game {
 	margin: auto;
 	height: 50px;
@@ -75,7 +82,6 @@ footer {
 	padding: 20px;
 	position: absolute;
 	border-radius: 5px;
-	background: #FBF2F2
 	backface-visibility: hidden;
 }
 
@@ -85,38 +91,68 @@ footer {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+	display: none;
+	position: absolute;
+    animation: animatetop 0.4s;
+	box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+	margin-left: 25%;
+    background-color: #fff;
+    /* outline: 0; */
+    width: 900px;
+    overflow: auto;
+    margin-top: 300px;
+    padding-top: 100;
+  	z-index: 2;
+
+  /* display: none; Hidden by default
+  position: fixed; Stay in place
+  z-index: 1; Sit on top
+  padding-top: 100px; Location of the box
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; Full width
+  height: 100%; Full height
+  overflow: auto; Enable scroll if needed
+  background-color: rgb(0,0,0); Fallback color
+  background-color: rgba(0,0,0,0.4); Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #FFFFFF;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
 }
 
-.p.modal-content {
-	margin: auto;
+.modal-header {
+  background-color: #F40A33;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+	font-size: 24px!important;
+	position: absolute;
+	user-select: none;
+	border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  /* color: #aaaaaa;
   float: right;
   font-size: 28px;
-  font-weight: bold;
+  font-weight: bold; */
 }
 
 .close:hover,
@@ -125,3 +161,4 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+
