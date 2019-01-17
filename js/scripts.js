@@ -57,7 +57,7 @@ function checkForMatch(){
 	//do cards match?
 	isMatch ? disableCards() : unflipCards();
 	console.log("Match: " + matched);
-	if (matched >=1){
+	if (matched >=6){
 		completed();
 	} 
 }
@@ -85,35 +85,55 @@ function unflipCards(){
 function resetBoard(){
 	[hasFlippedCard, lockBoard] = [false, false];
 	[firstCard, secondCard] = [null, null];
-
 }
 
 function completed() {
 	document.getElementById('ResultModal').style.display='block';
 	document.getElementById('moves-modal').textContent = 'MOVES: ' + moves;
 	document.getElementById('timer-modal').textContent = 'TIMER: ' + timer_final;
-	var score=document.getElementById('score');
-	console.log(score);
-	/*switch (moves) {
-		case <=18:
-			score.append("<span>&#9734 &#9734 &#9734 &#9734 &#9734</span>");
-			break;
-		case >18 && <= 27:
-			score.append("<span>&#9734 &#9734 &#9734 &#9734</span>");
-		case >27 && <= 36:
-			score.append("<span>&#9734 &#9734 &#9734</span>");
-			break;
-		case >36 && <= 45:
-			score.append("<span>&#9734 &#9734</span>");
-			break;
-		case >45:
-			score.append("<span>&#9734</span>");
-			break;
-	}*/
+	finalScore();
+}
 
+function finalScore() {
+	if (moves<=18) {
+		var node = document.createElement("SPAN");
+		var textnode = document.createTextNode('SCORE: ✰✰✰✰✰');         
+		node.appendChild(textnode);                              
+		document.getElementById("score").appendChild(node);    
+	} else if (moves>18 && moves<= 27) {
+		var node = document.createElement("SPAN");
+		var textnode = document.createTextNode('SCORE: ✰✰✰✰');         
+		node.appendChild(textnode);                              
+		document.getElementById("score").appendChild(node);   
+	} else if (moves>27 && moves<= 36) {
+		var node = document.createElement("SPAN");
+		var textnode = document.createTextNode('SCORE: ✰✰✰');         
+		node.appendChild(textnode);                              
+		document.getElementById("score").appendChild(node);   
+	} else if (moves>36 && moves<= 45) {
+		var node = document.createElement("SPAN");
+		var textnode = document.createTextNode('SCORE: ✰✰');         
+		node.appendChild(textnode);                              
+		document.getElementById("score").appendChild(node);   
+	} else if (moves>45) {
+		var node = document.createElement("SPAN");
+		var textnode = document.createTextNode('SCORE: ✰');         
+		node.appendChild(textnode);                              
+		document.getElementById("score").appendChild(node);  
+	}
+	playAgain();
+}
+
+function playAgain (){
+	console.log("PLAY AGAIN FUNCTION EXECUTED");
+	cards.forEach(card => {
+		card.classList.remove('flip');
+	});
+	/*document.getElementById("playBtn").addEventListener("click", this.style.display = "none");*/ /*I can't make it work!*/
 }
 
 cards.forEach(card => card.addEventListener ('click', flipCard));
 
 document.getElementById("start").addEventListener("click", unflipCards());
+
 
