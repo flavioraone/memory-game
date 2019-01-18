@@ -1,19 +1,20 @@
 # Memory Game Project
 
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
-
 ## About
 
 The Memory Game Project was completely related to my ability to demonstrate HTML, CSS and JavaScript domain. I created a complete browser matching game (also known as Concentration). But this is not a memory game either! It is a modern game, well designed and full of features!
 
-## Acces the Game:
-The game is available in:
-https://flavioraone.github.io/memory-game/
+## Installation:
+Clone the git repository. No dependence is required.
+``````
+$ git clone https://github.com/flavioraone/memory-game.git
+$ cd memory-game/
+$ nautilus index.html
+``````
+Or use your favorite browser to open the index.html file.
+You can even play the game oppening the following link: https://flavioraone.github.io/memory-game/
 
-## How it works
+## How to play
 If you are not familiar with the game, the rules are very simple: there will be a series of cards face down, and the player must turn two of those cards up to locate those that match each other!
 
 The game board consists of sixteen cards arranged randomly in a grid. The deck consists of eight pairs of cards, and each pair has a different symbol from the others. How each move works:

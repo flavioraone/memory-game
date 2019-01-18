@@ -22,10 +22,6 @@ let timer_final = 0;
         document.getElementById('timer').textContent = 'TIMER: ' + i;
         i++;
         timer_final=i;
-        if(i > 60) {
-            clearInterval(timer);
-            resetBoard()
-        }
     }, 1000);
 }
 ());
