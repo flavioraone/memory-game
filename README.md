@@ -25,6 +25,13 @@ If the cards are the same, both face up
 If the cards are not equal, both cards must face down again
 The game ends when all pairs are found.
 
+## Score
+
+If you make less than 18 moves, you receive 3 stars;
+
+If you make more than 18 moves and less than 22 moves, you get 2 stars;
+
+If you make more than 22 moves, you get 1 stars;
 
 ## Contributing
 
