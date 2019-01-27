@@ -7,6 +7,14 @@ let matched = 0;
 let moves = 0;
 let timer_final = 0;
 
+// Scoring system from 1 to 3 stars to shorten code
+let ratingStars = document.getElementsByClassName('fa-star');
+let	stars3 = 18;
+let	stars2 = 22;
+let star1 = 30;
+console.log(ratingStars);
+
+
 (function shuffle() {
 	cards.forEach(card => {
 		let randomPos = Math.floor(Math.random()*12);
@@ -15,11 +23,9 @@ let timer_final = 0;
 })();
 
 (function Timer () {
-    
     let i = 1;
-
     let timer = setInterval(function() {
-        document.getElementById('timer').textContent = 'TIMER: ' + i;
+        document.getElementById('timer').textContent = i;
         i++;
         timer_final=i;
     }, 1000);
@@ -27,9 +33,10 @@ let timer_final = 0;
 ());
 
 function flipCard (){
-	moves++;
-	document.getElementById('moves').textContent = 'MOVES: ' + moves;
+	moves++; 
 	console.log('move' + moves);
+	rating(moves);
+	document.getElementById('moves').textContent = moves;
 	if (lockBoard) return;
 	if (this === firstCard) return;
 
@@ -87,49 +94,30 @@ function completed() {
 	document.getElementById('ResultModal').style.display='block';
 	document.getElementById('moves-modal').textContent = 'MOVES: ' + moves;
 	document.getElementById('timer-modal').textContent = 'TIMER: ' + timer_final;
-	finalScore();
-}
+	scrstars = document.getElementById('score-panel');
+	console.log(scrstars);
+/*	$("#ResultModal").append(scrstars);
+*/}
 
-function finalScore() {
-	if (moves<=18) {
-		var node = document.createElement("SPAN");
-		var textnode = document.createTextNode('SCORE: ✰✰✰✰✰');         
-		node.appendChild(textnode);                              
-		document.getElementById("score").appendChild(node);    
-	} else if (moves>18 && moves<= 27) {
-		var node = document.createElement("SPAN");
-		var textnode = document.createTextNode('SCORE: ✰✰✰✰');         
-		node.appendChild(textnode);                              
-		document.getElementById("score").appendChild(node);   
-	} else if (moves>27 && moves<= 36) {
-		var node = document.createElement("SPAN");
-		var textnode = document.createTextNode('SCORE: ✰✰✰');         
-		node.appendChild(textnode);                              
-		document.getElementById("score").appendChild(node);   
-	} else if (moves>36 && moves<= 45) {
-		var node = document.createElement("SPAN");
-		var textnode = document.createTextNode('SCORE: ✰✰');         
-		node.appendChild(textnode);                              
-		document.getElementById("score").appendChild(node);   
-	} else if (moves>45) {
-		var node = document.createElement("SPAN");
-		var textnode = document.createTextNode('SCORE: ✰');         
-		node.appendChild(textnode);                              
-		document.getElementById("score").appendChild(node);  
-	}
-	playAgain();
-}
-
-function playAgain (){
-	console.log("PLAY AGAIN FUNCTION EXECUTED");
-	cards.forEach(card => {
-		card.classList.remove('flip');
-	});
-	/*document.getElementById("playBtn").addEventListener("click", this.style.display = "none");*/ /*I can't make it work!*/
+// Adds a score from 1 to 3 stars depending on the amount of moves done
+function rating() {
+	let rating = 3;
+    if (moves > stars3 && moves < stars2) {
+        ratingStars[0].classList.remove("fas");
+        ratingStars[0].classList.add("far");
+        stars3 = 100;
+    } else if (moves > stars2 && moves < star1) {
+       ratingStars[1].classList.remove("fas");
+       ratingStars[1].classList.add("far");
+       stars2 = 100;
+    } else if (moves > star1) {
+       ratingStars[2].classList.remove("fas");
+       ratingStars[2].classList.add("far");
+       rating = 1;
+    }
+    return { score: rating };
 }
 
 cards.forEach(card => card.addEventListener ('click', flipCard));
-
-document.getElementById("start").addEventListener("click", unflipCards());
 
 

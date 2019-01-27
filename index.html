@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/styles.css">
-	<title>Memory Game</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">	
+<title>Memory Game</title>
 </head>
 <body>
 	<header><h1>FAVORITE ANIMALS MEMORY GAME</h1></header>
-	<section class="start-game">
-		<form class="start-game">
-			<input id="start "type="submit" value="START">
-		</form>
-		<div>
-			<div><h3 id="moves">MOVES: </h3></div>
-			<div><h3 id="timer">TIMER: </h3></div>
-		</div>
-		
-	</section>
+	<section class="score-panel">| Score:
+        <ul class="stars">
+            <li>
+                <i class="fas fa-star"></i>
+            </li>
+            <li>
+                <i class="fas fa-star"></i>
+            </li>
+            <li>
+                <i class="fas fa-star"></i>
+            </li>
+        </ul> | 
+        <span id="moves">0</span> Moves | Time: 
+        <span id="timer">0</span> s | 
+            <i class="fa fa-play-circle restart" aria-hidden="true"></i>
+    | </section>
 	<container class="memory-board">
 		<section class="memory-game">
 			<div class="memory-card" data-animal="dog">
@@ -80,7 +88,11 @@
     	<div class="modal-content">
       		<h3 id="moves-modal">MOVES: </h3>
         	<h3 id="timer-modal">TIMER: </h3>
-        	<div id="score"></div>
+        	<ul class="stars">SCORE:
+                    <span class="fa fa-star"></span>            
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+            </ul>
     	</div>
     		<footer class="w3-container w3-red w3-display-container">
       		<!-- <button id="playBtn" "type="button">Play Again!</button> --><!-- I can't make it work! -->
@@ -91,7 +103,7 @@
 	<!-- Modal content -->
 
 	<script src="js/scripts.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script>
 <footer>Powered by Flavio Raone</footer>
 </body>
 </html>
