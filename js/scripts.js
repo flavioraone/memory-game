@@ -1,19 +1,18 @@
 const cards = document.querySelectorAll('.memory-card');
-
+let start = false;
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 let matched = 0;
 let moves = 0;
 let timer_final = 0;
+let stop = false;
 
 // Scoring system from 1 to 3 stars to shorten code
 let ratingStars = document.getElementsByClassName('fa-star');
 let	stars3 = 18;
 let	stars2 = 22;
 let star1 = 30;
-console.log(ratingStars);
-
 
 (function shuffle() {
 	cards.forEach(card => {
@@ -22,19 +21,12 @@ console.log(ratingStars);
 	});
 })();
 
-(function Timer () {
-    let i = 1;
-    let timer = setInterval(function() {
-        document.getElementById('timer').textContent = i;
-        i++;
-        timer_final=i;
-    }, 1000);
-}
-());
-
 function flipCard (){
+	if (!start){
+		Timer();
+		start = true;
+	};
 	moves++; 
-	console.log('move' + moves);
 	rating(moves);
 	document.getElementById('moves').textContent = moves;
 	if (lockBoard) return;
@@ -59,7 +51,6 @@ function checkForMatch(){
 	let isMatch = firstCard.dataset.animal === secondCard.dataset.animal;
 	//do cards match?
 	isMatch ? disableCards() : unflipCards();
-	console.log("Match: " + matched);
 	if (matched >=6){
 		completed();
 	} 
@@ -82,7 +73,7 @@ function unflipCards(){
 		
 		lockBoard = false;
 		resetBoard();
-	}, 1500);
+	}, 1200);
 }
 
 function resetBoard(){
@@ -92,10 +83,9 @@ function resetBoard(){
 
 function completed() {
 	document.getElementById('ResultModal').style.display='block';
-	document.getElementById('moves-modal').textContent = 'MOVES: ' + moves;
-	document.getElementById('timer-modal').textContent = 'TIMER: ' + timer_final;
 	scrstars = document.getElementById('score-panel');
 	$("#modal-content").append(scrstars);
+	stop = true;
 }
 
 // Adds a score from 1 to 3 stars depending on the amount of moves done
@@ -117,6 +107,17 @@ function rating() {
     return { score: rating };
 }
 
+//Initiates timer
+function Timer () {
+        let i = 1;
+		let timer = setInterval(function() {
+		if (stop){
+    		clearInterval(timer);
+    	}
+    	document.getElementById('timer').textContent = i;
+    	i++;
+    	timer_final=i;
+    }, 1000);   
+};
+
 cards.forEach(card => card.addEventListener ('click', flipCard));
-
-
