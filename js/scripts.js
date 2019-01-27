@@ -95,9 +95,8 @@ function completed() {
 	document.getElementById('moves-modal').textContent = 'MOVES: ' + moves;
 	document.getElementById('timer-modal').textContent = 'TIMER: ' + timer_final;
 	scrstars = document.getElementById('score-panel');
-	console.log(scrstars);
-/*	$("#ResultModal").append(scrstars);
-*/}
+	$("#modal-content").append(scrstars);
+}
 
 // Adds a score from 1 to 3 stars depending on the amount of moves done
 function rating() {
