@@ -99,11 +99,7 @@ function rating() {
        ratingStars[1].classList.remove("fas");
        ratingStars[1].classList.add("far");
        stars2 = 100;
-    } else if (moves > star1) {
-       ratingStars[2].classList.remove("fas");
-       ratingStars[2].classList.add("far");
-       rating = 1;
-    }
+    } 
     return { score: rating };
 }
 
